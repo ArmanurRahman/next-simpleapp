@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import Link from "next/link";
 import path from "path";
 
 const ProductPage = (props) => {
@@ -7,7 +8,12 @@ const ProductPage = (props) => {
         <div>
             <ul>
                 {products.map((product) => (
-                    <li key={product.id}> {product.name}</li>
+                    <li key={product.id}>
+                        {" "}
+                        <Link href={`/product/${product.id}`}>
+                            {product.name}
+                        </Link>{" "}
+                    </li>
                 ))}
             </ul>
         </div>
